@@ -1,2 +1,2 @@
 # tank-simulator
-this is a midterm exam unity project
+this is a final project for 3D Game Development
