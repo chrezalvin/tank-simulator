@@ -1,40 +1,114 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerBehaviour : MonoBehaviour
 {
-    [SerializeField]
-    GameObject tankTower;
+    public float maxSpeed = 20f;
+    public float acceleration = 10f;
+    public float deceleration = 3f;
+    public float brakeDeceleration = 10f;
+    public float rotationSpeed = 10f;
 
-    // Start is called before the first frame update
-    void Start()
+    private float currentSpeed = 0f;
+    private bool isMovingForward = false;
+    private bool isMovingBackward = false;
+    private bool isTurningLeft = false;
+    private bool isTurningRight = false;
+
+    private void UpdateTankMovement()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        float h_key = Input.GetAxis("Horizontal");
-        float v_key = Input.GetAxis("Vertical");
-
-        bool rot_left = Input.GetKey(KeyCode.Q);
-        bool rot_right = Input.GetKey(KeyCode.E);
-
-        tankTower.transform.Rotate(Vector3.up, h_key * Time.deltaTime * 20);
-
-        if (rot_left == false && rot_right == false)
+        if (Input.GetKey(KeyCode.W))
         {
-            this.transform.Translate(Vector3.forward * v_key * Time.deltaTime * 4);
+            if (currentSpeed <= 0)
+            {
+                isMovingBackward = false;
+                isMovingForward = true;
+            }
+            else
+            {
+                isMovingBackward = false;
+                isMovingForward = true;
+            }
+        }
+        else if (Input.GetKey(KeyCode.S))
+        {
+            if (currentSpeed >= 0)
+            {
+                isMovingForward = false;
+                isMovingBackward = true;
+            }
+            else
+            {
+                isMovingForward = false;
+                isMovingBackward = true;
+            }
         }
         else
-            // penalty for moving while rotating tank
-            this.transform.Translate(Vector3.forward * v_key * Time.deltaTime * 2);
+        {
+            isMovingForward = false;
+            isMovingBackward = false;
+        }
 
-        if (rot_left)
-            this.transform.Rotate(Vector3.up, Time.deltaTime * -20);
-        if (rot_right)
-            this.transform.Rotate(Vector3.up, Time.deltaTime * 20);
+        if (Input.GetKey(KeyCode.A))
+        {
+            isTurningLeft = true;
+            isTurningRight = false;
+        }
+        else if (Input.GetKey(KeyCode.D))
+        {
+            isTurningRight = true;
+            isTurningLeft = false;
+        }
+        else
+        {
+            isTurningLeft = false;
+            isTurningRight = false;
+        }
+
+        if (isMovingForward)
+        {
+            currentSpeed = Mathf.Min(currentSpeed + acceleration * Time.deltaTime, maxSpeed);
+            transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+        }
+        else if (isMovingBackward)
+        {
+            if (currentSpeed > 0)
+            {
+                currentSpeed = Mathf.Max(currentSpeed - brakeDeceleration * Time.deltaTime, 0);
+            }
+            else
+            {
+                currentSpeed = Mathf.Max(currentSpeed - deceleration * Time.deltaTime, -maxSpeed / 2f);
+            }
+            transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+        }
+        else
+        {
+            if (currentSpeed > 0)
+            {
+                currentSpeed = Mathf.Max(currentSpeed - deceleration * Time.deltaTime, 0);
+                transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+            }
+            else if (currentSpeed < 0)
+            {
+                currentSpeed = Mathf.Min(currentSpeed + deceleration * Time.deltaTime, 0);
+                transform.Translate(Vector3.forward * currentSpeed * Time.deltaTime);
+            }
+        }
+
+        if (isTurningLeft)
+        {
+            transform.Rotate(Vector3.down * rotationSpeed * Time.deltaTime);
+        }
+        else if (isTurningRight)
+        {
+            transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+        }
     }
+
+
+    private void Update()
+    {
+        UpdateTankMovement();
+    }
+
 }
