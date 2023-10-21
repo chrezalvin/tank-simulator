@@ -20,9 +20,6 @@ public class Aim : MonoBehaviour
 
     private void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-
         // Store the default rotations of the turret and muzzle for reference
         defaultTurretRotation = turret.rotation;
         defaultMuzzleRotation = muzzle.localRotation;
