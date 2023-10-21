@@ -44,11 +44,11 @@ public class Enemy : MonoBehaviour
         if(lockPlayer != null)
         {
             Vector3 tankToPlayer = lockPlayer.transform.position - turret.transform.position;
-            Quaternion toRotation = Quaternion.LookRotation(tankToPlayer);
+            Quaternion toRotation = Quaternion.LookRotation(new Vector3(tankToPlayer.x, 0, tankToPlayer.z));
             turret.transform.rotation = Quaternion.Lerp(turret.transform.rotation, toRotation, turretRotateSpeed * Mathf.PI * Time.deltaTime / 180);
 
             // if close enough, start shooting
-            if (Quaternion.Dot(turret.transform.rotation, toRotation) > 0.9f && currentColdown < 0)
+            if (Mathf.Abs(Quaternion.Dot(turret.transform.rotation, toRotation)) > 0.9f && currentColdown < 0)
             {
                 Shoot();
                 currentColdown = shootColdown;
