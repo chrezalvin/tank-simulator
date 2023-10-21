@@ -7,11 +7,11 @@ public class CollideExplode : MonoBehaviour
     public int damage = 10;
     public GameObject explosionEffect;
     public Player player;
-    public AudioSource playSound = null;
+    // public AudioSource playSound = null;
 
     void Start()
     {
-        playSound.playOnAwake = false;
+       
     }
 
     private void OnCollisionEnter(Collision collision)

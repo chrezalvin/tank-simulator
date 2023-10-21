@@ -18,7 +18,6 @@ public class CameraZoom : MonoBehaviour
     void Update()
     {
         float wheel = Input.GetAxis("Mouse ScrollWheel");
-        Debug.Log(Vector3.Distance(player.position, transform.position));
 
         if (wheel < 0 && distance <= Vector3.Distance(player.position, transform.position))
             this.transform.Translate(Vector3.forward * -3);
