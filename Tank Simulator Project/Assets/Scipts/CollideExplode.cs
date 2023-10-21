@@ -16,13 +16,13 @@ public class CollideExplode : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-
-        if (collision.gameObject.tag == player.tag)
+        if (collision.gameObject.tag == player.tag || collision.gameObject.tag == "bullet")
         {
             player.TakeDamage(damage);
 
             Destroy(Instantiate(explosionEffect, transform.position, Quaternion.identity), 3);
             Destroy(this.gameObject);
         }
+        
     }
 }

@@ -21,9 +21,16 @@ public class Enemy : MonoBehaviour
 
     public GameObject explosionEffect = null;
 
+    public GameObject bulletModel;
+    public ParticleSystem bulletEffect;
+    public float bulletVelocity = 20;
+    public float shootColdown = 2;
+    public Transform firePoint;
+
     public CheckEnemyList checkEnemyList;
 
     private GameObject lockPlayer = null;
+    private float currentColdown = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +42,20 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         if(lockPlayer != null)
-            turret.transform.LookAt(lockPlayer.transform.position);
+        {
+            Vector3 tankToPlayer = lockPlayer.transform.position - turret.transform.position;
+            Quaternion toRotation = Quaternion.LookRotation(tankToPlayer);
+            turret.transform.rotation = Quaternion.Lerp(turret.transform.rotation, toRotation, turretRotateSpeed * Mathf.PI * Time.deltaTime / 180);
+
+            // if close enough, start shooting
+            if (Quaternion.Dot(turret.transform.rotation, toRotation) > 0.9f && currentColdown < 0)
+            {
+                Shoot();
+                currentColdown = shootColdown;
+            }
+        }
+
+        currentColdown -= Time.deltaTime;
     }
 
     public void TakeDamage(int damage)
@@ -79,5 +99,21 @@ public class Enemy : MonoBehaviour
             playerScript.TakeDamage(5);
             TakeDamage(10);
         }
+
+        if(collision.gameObject.tag == "bullet")
+        {
+            TakeDamage(20);
+        }
+    }
+
+    void Shoot()
+    {
+        GameObject bullet = Instantiate(bulletModel, firePoint.position, firePoint.rotation);
+        Rigidbody bulletRigidbody = bullet.GetComponent<Rigidbody>();
+        if (bulletRigidbody != null)
+        {
+            bulletRigidbody.velocity = firePoint.forward * bulletVelocity;
+        }
+        bulletEffect.Play(); // Trigger the particle effect
     }
 }

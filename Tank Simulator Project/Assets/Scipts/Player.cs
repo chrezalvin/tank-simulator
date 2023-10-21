@@ -32,4 +32,20 @@ public class Player : MonoBehaviour
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "bullet")
+        {
+            TakeDamage(10);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "bullet")
+        {
+            TakeDamage(10);
+        }
+    }
 }
