@@ -20,7 +20,10 @@ public class CollideExplode : MonoBehaviour
         {
             player.TakeDamage(damage);
 
-            Destroy(Instantiate(explosionEffect, transform.position, Quaternion.identity), 3);
+            if (explosionEffect != null)
+            {
+                Destroy(Instantiate(explosionEffect, transform.position, Quaternion.identity), 3);
+            }
             Destroy(this.gameObject);
         }
         

@@ -8,7 +8,6 @@ public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
     private int currentHealth;
-    public TextUI textUItext;
     
     public HealthBar healthBar;
 
