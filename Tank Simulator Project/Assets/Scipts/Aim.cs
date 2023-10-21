@@ -45,29 +45,34 @@ public class Aim : MonoBehaviour
         transform.rotation = Quaternion.LookRotation(lookDirection);
 
         // Perform a raycast from the camera position towards the aim direction
-        Ray ray = new Ray(transform.position, transform.forward);
-        Debug.DrawRay(ray.origin, ray.direction * 100f, rayColor);
+/*        Ray ray = new Ray(transform.position, transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction * 100f, rayColor);*/
+
+        // aims based on the camera position
+        Vector3 tankToPlayer = turret.transform.position - this.transform.position;
+        Quaternion toRotation = Quaternion.LookRotation(new Vector3(tankToPlayer.x, 0, tankToPlayer.z));
+        turret.transform.rotation = Quaternion.Lerp(turret.transform.rotation, toRotation, turretRotationSpeed * Mathf.PI * Time.deltaTime / 180);
 
         // Aiming the turret and muzzle with a realistic slow spin
-        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
-        {
-            Vector3 targetPoint = hit.point;
-            Vector3 turretTargetDirection = new Vector3(targetPoint.x, turret.position.y, targetPoint.z) - turret.position;
-            Quaternion turretTargetRotation = Quaternion.LookRotation(turretTargetDirection);
-            turret.rotation = Quaternion.RotateTowards(turret.rotation, turretTargetRotation, turretRotationSpeed * Time.deltaTime);
+        /*        if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity))
+                {
+                    Vector3 targetPoint = hit.point;
+                    Vector3 turretTargetDirection = new Vector3(targetPoint.x, turret.position.y, targetPoint.z) - turret.position;
+                    Quaternion turretTargetRotation = Quaternion.LookRotation(turretTargetDirection);
+                    turret.rotation = Quaternion.RotateTowards(turret.rotation, turretTargetRotation, turretRotationSpeed * Time.deltaTime);
 
-            Vector3 relativeVector = targetPoint - muzzle.position;
-            Vector3 targetEulerAngle = Quaternion.LookRotation(relativeVector).eulerAngles;
-            float clampedAngle = Mathf.Clamp(targetEulerAngle.x, -muzzleVerticalLimit, muzzleVerticalLimit);
-            Vector3 clampedEulerAngle = new Vector3(clampedAngle, 0, 0);
-            Quaternion muzzleTargetRotation = Quaternion.Euler(clampedEulerAngle);
-            muzzle.localRotation = Quaternion.RotateTowards(muzzle.localRotation, muzzleTargetRotation, muzzleRotationSpeed * Time.deltaTime);
-        }
-        else
-        {
-            // Reset to default rotation if no target is hit
-            turret.rotation = Quaternion.RotateTowards(turret.rotation, defaultTurretRotation, turretRotationSpeed * Time.deltaTime);
-            muzzle.localRotation = Quaternion.RotateTowards(muzzle.localRotation, defaultMuzzleRotation, muzzleRotationSpeed * Time.deltaTime);
-        }
+                    Vector3 relativeVector = targetPoint - muzzle.position;
+                    Vector3 targetEulerAngle = Quaternion.LookRotation(relativeVector).eulerAngles;
+                    float clampedAngle = Mathf.Clamp(targetEulerAngle.x, -muzzleVerticalLimit, muzzleVerticalLimit);
+                    Vector3 clampedEulerAngle = new Vector3(clampedAngle, 0, 0);
+                    Quaternion muzzleTargetRotation = Quaternion.Euler(clampedEulerAngle);
+                    muzzle.localRotation = Quaternion.RotateTowards(muzzle.localRotation, muzzleTargetRotation, muzzleRotationSpeed * Time.deltaTime);
+                }
+                else
+                {
+                    // Reset to default rotation if no target is hit
+                    turret.rotation = Quaternion.RotateTowards(turret.rotation, defaultTurretRotation, turretRotationSpeed * Time.deltaTime);
+                    muzzle.localRotation = Quaternion.RotateTowards(muzzle.localRotation, defaultMuzzleRotation, muzzleRotationSpeed * Time.deltaTime);
+                }*/
     }
 }

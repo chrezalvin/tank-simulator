@@ -7,6 +7,9 @@ public class TankShooting : MonoBehaviour
     public float bulletSpeed = 20f;
     public float shootingCooldown = 1f; // Adjust this value for the cooldown period
     [SerializeField] ParticleSystem muzzleBlast = null;
+
+    public TextUI textUItext;
+
     private float currentCooldown = 0f;
 
     void Update()
@@ -23,6 +26,8 @@ public class TankShooting : MonoBehaviour
         {
             currentCooldown -= Time.deltaTime;
         }
+
+        textUItext.ChangeText(currentCooldown < 0 ? "Loaded": Mathf.Ceil(currentCooldown).ToString());
     }
 
     void Shoot()
