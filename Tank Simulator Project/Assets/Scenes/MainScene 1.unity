@@ -2785,11 +2785,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 908a66b948c67b14ca102e8f19566480, type: 3}
---- !u!1 &1357974472 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1948525934080393136, guid: 38548c4351fb4d644a50593317179b23, type: 3}
-  m_PrefabInstance: {fileID: 1802664289}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1380806331
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4538,7 +4533,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0901cd73fa6cb224080995cd7c0738f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tankTower: {fileID: 1357974472}
+  maxSpeed: 10
+  acceleration: 3
+  deceleration: 3
+  brakeDeceleration: 10
+  rotationSpeed: 20
 --- !u!54 &2112433943
 Rigidbody:
   m_ObjectHideFlags: 0
