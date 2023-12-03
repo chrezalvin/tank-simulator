@@ -65,6 +65,7 @@ public class Enemy : MonoBehaviour
             if (explosionEffect)
             {
                 var explosion = Instantiate(explosionEffect, transform.position, Quaternion.identity);
+                explosion.transform.localScale = new Vector3(3f, 3f, 3f);
                 Destroy(explosion, 3);
             }
 
