@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1525,7 +1525,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -7001,7 +7001,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -11993,7 +11993,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -19750,7 +19750,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -25169,7 +25169,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -30678,7 +30678,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd192b47de9c9f541871eae32641094d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 30
   turretRotateSpeed: 30
   moveSpeed: 20
   fireDelay: 3
@@ -33218,7 +33218,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd192b47de9c9f541871eae32641094d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 30
   turretRotateSpeed: 30
   moveSpeed: 20
   fireDelay: 3
@@ -33499,7 +33499,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -38468,7 +38468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd192b47de9c9f541871eae32641094d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 30
   turretRotateSpeed: 30
   moveSpeed: 20
   fireDelay: 3
@@ -38659,7 +38659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd192b47de9c9f541871eae32641094d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 30
   turretRotateSpeed: 30
   moveSpeed: 20
   fireDelay: 3
@@ -38824,7 +38824,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd192b47de9c9f541871eae32641094d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 30
   turretRotateSpeed: 30
   moveSpeed: 20
   fireDelay: 3
@@ -42745,7 +42745,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -48446,7 +48446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd192b47de9c9f541871eae32641094d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 30
   turretRotateSpeed: 30
   moveSpeed: 20
   fireDelay: 3
@@ -50214,7 +50214,7 @@ ParticleSystem:
   emitterVelocityMode: 1
   looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -58492,7 +58492,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd192b47de9c9f541871eae32641094d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 200
+  maxHealth: 30
   turretRotateSpeed: 30
   moveSpeed: 20
   fireDelay: 3
@@ -59661,10 +59661,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8231308831795078290, guid: bbc84dcaec247494b9262cf8a787dfcc, type: 3}
+      propertyPath: playOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8717309812293919662, guid: bbc84dcaec247494b9262cf8a787dfcc, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2112433940}
+    - target: {fileID: 8717309812293919662, guid: bbc84dcaec247494b9262cf8a787dfcc, type: 3}
+      propertyPath: maxHealth
+      value: 30
+      objectReference: {fileID: 0}
     - target: {fileID: 8717309812293919662, guid: bbc84dcaec247494b9262cf8a787dfcc, type: 3}
       propertyPath: playerScript
       value: 
