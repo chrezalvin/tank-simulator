@@ -5,8 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class CheckEnemyList : MonoBehaviour
 {
-
-    public int winningSceneId;
     int CountChildren(Transform a)
     {
         int count = 0;
