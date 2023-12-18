@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class MenuController : MonoBehaviour
 {
     public GameObject mainMenu;
+    public GameObject pauseUI;
+    public GameObject LoseMenu;
+    public GameObject WinMenu;
+
+    public Player player;
+    public CheckEnemyList enemyList;
 
     private AudioSource soundEffect = null;
 
@@ -18,8 +24,20 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (player.GetHealth() <= 0)
+        {
+            Time.timeScale = 0;
+            LoseMenu.SetActive(true);
+        }
+
+        if (enemyList.GetEnemyCount() == 0)
+        {
+            Time.timeScale = 0;
+            WinMenu.SetActive(true);
+        }
+        
         // if escape key then pause
-        if (Input.GetKeyDown(KeyCode.F1))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             mainMenu.SetActive(Time.timeScale == 1);
             if (Time.timeScale == 1)
@@ -31,6 +49,24 @@ public class MenuController : MonoBehaviour
             else
                 Time.timeScale = 1;
         }
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            pauseUI.SetActive(Time.timeScale == 1);
+            if (Time.timeScale == 1)
+            {
+                if (soundEffect != null)
+                    soundEffect.Play();
+                Time.timeScale = 0;
+            }
+            else
+                Time.timeScale = 1;
+        }
+    }
+
+    private void showLoseGame()
+    {
+
     }
 
     public void OnResume()
@@ -42,6 +78,7 @@ public class MenuController : MonoBehaviour
 
     public void OnExitGame()
     {
+
 
     }
 

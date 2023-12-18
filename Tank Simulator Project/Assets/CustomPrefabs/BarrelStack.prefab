@@ -52,7 +52,6 @@ MonoBehaviour:
   damage: 50
   explosionEffect: {fileID: 100012, guid: 5f5e08f64c8423c46ae4bd7e46588425, type: 3}
   player: {fileID: 0}
-  playSound: {fileID: 0}
 --- !u!65 &7595285425652708044
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -113,7 +112,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8703287104271427836}
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d119f1d92935d684b84f75da40cfcf0a, type: 3}

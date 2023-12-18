@@ -8,4 +8,9 @@ public class ExitGameOnClick : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void test(int number)
+    {
+
+    }
 }

@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
     public float fireDelay = 3;
 
     public HealthBar healthBar;
-    public GameObject player;
+    public string playerTag = "Player";
 
     public GameObject turret;
     public Player playerScript;
@@ -79,7 +79,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == player.tag)
+        if(collision.gameObject.tag == playerTag)
         {
             lockPlayer = collision.gameObject;
         }
@@ -87,7 +87,7 @@ public class Enemy : MonoBehaviour
 
     private void OnTriggerExit(Collider collision)
     {
-        if (collision.gameObject.tag == player.tag)
+        if (collision.gameObject.tag == playerTag)
         {
             lockPlayer = null;
         }
@@ -95,7 +95,7 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == player.tag)
+        if (collision.gameObject.tag == playerTag)
         {
             playerScript.TakeDamage(5);
             TakeDamage(10);

@@ -17,12 +17,14 @@ public class CheckEnemyList : MonoBehaviour
 
     private int enemyCount;
 
+    public int GetEnemyCount()
+    {
+        return enemyCount;
+    }
+
     public void ReportEnemyDestroyed()
     {
         --enemyCount;
-
-        if(enemyCount == 0)
-            SceneManager.LoadScene(winningSceneId);
     }
 
     // Start is called before the first frame update

@@ -109,14 +109,6 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            // pauses the game and show the menu
-            Time.timeScale = 0;
-            // show the menu
-
-        }
-
         UpdateTankMovement();
     }
 

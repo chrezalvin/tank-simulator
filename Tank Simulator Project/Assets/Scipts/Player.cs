@@ -18,6 +18,12 @@ public class Player : MonoBehaviour
         healthBar.SetMaxHealth(maxHealth);
     }
 
+    // getter for health
+    public int GetHealth()
+    {
+        return currentHealth;
+    }
+
     // Update is called once per frame
     void Update()
     {
