@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.44657826, g: 0.49641263, b: 0.57481676, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -90946,18 +90946,34 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2112433945}
+    - target: {fileID: 2609664972891241830, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
+      propertyPath: playSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 2896795188726850537, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2112433945}
+    - target: {fileID: 2896795188726850537, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
+      propertyPath: playSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 3257485396782385552, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2112433945}
+    - target: {fileID: 3257485396782385552, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
+      propertyPath: playSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 4355203329769496918, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2112433945}
+    - target: {fileID: 4355203329769496918, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
+      propertyPath: playSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 5222599643156687151, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -91014,6 +91030,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2112433945}
+    - target: {fileID: 7310934395211540757, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
+      propertyPath: playSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 7334704843372263999, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -91022,10 +91042,18 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 2112433945}
+    - target: {fileID: 7907862955865251229, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
+      propertyPath: playSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8093851831780047211, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
       propertyPath: player
       value: 
       objectReference: {fileID: 2112433945}
+    - target: {fileID: 8093851831780047211, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
+      propertyPath: playSound
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8524258644807880858, guid: 787ee16e1af9b63479218850c5f3b34a, type: 3}
       propertyPath: m_Layer
       value: 7
