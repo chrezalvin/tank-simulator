@@ -29,7 +29,7 @@ public class Enemy : MonoBehaviour
 
     public CheckEnemyList checkEnemyList;
 
-    public AudioSource shootSfx;
+    public AudioSource shootSfx = null;
 
     private GameObject lockPlayer = null;
     private float currentColdown = 0;
@@ -118,6 +118,8 @@ public class Enemy : MonoBehaviour
             bulletRigidbody.velocity = firePoint.forward * bulletVelocity;
         }
         bulletEffect.Play(); // Trigger the particle effect
-        shootSfx.Play(); // Trigger the sound effect
+
+        if(shootSfx != null)
+            shootSfx.Play(); // Trigger the sound effect
     }
 }
