@@ -32,9 +32,6 @@ public class Player : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if(currentHealth < damage)
-            SceneManager.LoadScene(2);
-
         currentHealth -= damage;
         healthBar.SetHealth(currentHealth);
     }

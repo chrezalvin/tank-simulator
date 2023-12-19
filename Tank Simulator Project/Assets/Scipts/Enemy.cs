@@ -29,6 +29,8 @@ public class Enemy : MonoBehaviour
 
     public CheckEnemyList checkEnemyList;
 
+    public AudioSource shootSfx;
+
     private GameObject lockPlayer = null;
     private float currentColdown = 0;
     // Start is called before the first frame update
@@ -116,5 +118,6 @@ public class Enemy : MonoBehaviour
             bulletRigidbody.velocity = firePoint.forward * bulletVelocity;
         }
         bulletEffect.Play(); // Trigger the particle effect
+        shootSfx.Play(); // Trigger the sound effect
     }
 }

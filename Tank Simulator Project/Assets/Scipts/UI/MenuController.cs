@@ -13,7 +13,8 @@ public class MenuController : MonoBehaviour
     public Player player;
     public CheckEnemyList enemyList;
 
-    private AudioSource soundEffect = null;
+    // public AudioSource backgroundMusic = null;
+    public AudioSource soundEffect = null;
 
     void Start()
     {
@@ -24,14 +25,18 @@ public class MenuController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (player.GetHealth() <= 0)
+        if (player.GetHealth() <= 0 && !LoseMenu.activeSelf)
         {
+            if (soundEffect != null)
+                soundEffect.Play();
             Time.timeScale = 0;
             LoseMenu.SetActive(true);
         }
 
-        if (enemyList.GetEnemyCount() == 0)
+        if (enemyList.GetEnemyCount() == 0 && !LoseMenu.activeSelf)
         {
+            if (soundEffect != null)
+                soundEffect.Play();
             Time.timeScale = 0;
             WinMenu.SetActive(true);
         }
@@ -47,7 +52,9 @@ public class MenuController : MonoBehaviour
                 Time.timeScale = 0;
             }
             else
+            {
                 Time.timeScale = 1;
+            }
         }
 
         if (Input.GetKeyDown(KeyCode.P))

@@ -7,7 +7,7 @@ public class CollideExplode : MonoBehaviour
     public int damage = 10;
     public GameObject explosionEffect;
     public Player player;
-    // public AudioSource playSound = null;
+    public AudioSource playSound = null;
 
     void Start()
     {
@@ -23,6 +23,11 @@ public class CollideExplode : MonoBehaviour
             if (explosionEffect != null)
             {
                 Destroy(Instantiate(explosionEffect, transform.position, Quaternion.identity), 3);
+            }
+            // play sound if not null
+            if (playSound != null)
+            {
+                AudioSource.PlayClipAtPoint(playSound.clip, transform.position);
             }
             Destroy(this.gameObject);
         }
