@@ -7,6 +7,7 @@ public class TankShooting : MonoBehaviour
     public Transform firePoint;
     public float bulletSpeed = 20f;
     public float shootingCooldown = 1f; // Adjust this value for the cooldown period
+    public AudioSource shootSound = null;
     [SerializeField] ParticleSystem muzzleBlast = null;
 
     public TextUI textUItext;
@@ -39,6 +40,12 @@ public class TankShooting : MonoBehaviour
         {
             bulletRigidbody.velocity = firePoint.forward * bulletSpeed;
         }
-            muzzleBlast.Play(); // Trigger the particle effect
+
+        if (shootSound != null)
+        {
+            shootSound.Play();
+        }
+
+        muzzleBlast.Play(); // Trigger the particle effect
     }
 }
